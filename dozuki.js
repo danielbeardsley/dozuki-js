@@ -4,7 +4,12 @@
       baseUrl = "https://" + domain +  "/api/2.0/";
       this.guides = {
          get: function(guideid) {
-            return http.send(baseUrl + "guides/" + guideid);
+            return http.send(
+               baseUrl + "guides/" + guideid,
+               {
+                  dataType:   'json',
+                  method: 'get'
+               });
          }
       }
    }

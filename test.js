@@ -9,16 +9,30 @@ describe('Dozuki', function(){
    }
    describe('guides', function() {
       describe('get', function() {
-         it("should form the correct url", function(done) {
+         it("should from the correct url", function(done) {
             var http = new HttpMock("123");
             var d = newDozuki(http);
             var promise = d.guides.get(123);
+
             assert(promise.then);
             assert.equal(http.sent.url, "https://" + domain + "/api/2.0/guides/123");
+
             promise.then(function(data) {
                assert.equal("123", data);
                done();
             });
+         });
+
+         it("should set the correct request options", function(done) {
+            var http = new HttpMock("123");
+            newDozuki(http).guides.get(123);
+
+            assert.deepEqual(http.sent.options, {
+               dataType:   'json',
+               method:     'get'
+            });
+
+            assert.equal(http.sent.url, "https://" + domain + "/api/2.0/guides/123");
          });
       });
    });
