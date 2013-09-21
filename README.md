@@ -1,5 +1,8 @@
 ## dozuki-js
 
+[![Build
+Status](https://travis-ci.org/danielbeardsley/dozuki-js.png)](https://travis-ci.org/danielbeardsley/dozuki-js)
+
 A javascript library for accessing Dozuki.com's api.
 
 ## Usage
