@@ -1,13 +1,11 @@
 (function (global) {
-   global.Dozui =
+   global.Dozuki =
    function Dozuki(domain, http) {
       baseUrl = "https://" + domain +  "/api/2.0/";
       this.guides = {
          get: function(guideid) {
-            return http.send(blah);
+            return http.send(baseUrl + "guides/" + guideid);
          }
       }
    }
-
-   Dozuki.prototype.guides = 
-})(typeof window != 'undefined' ? window : module);
+})(typeof window != 'undefined' ? window : module.exports);
