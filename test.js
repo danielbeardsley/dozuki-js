@@ -1,5 +1,8 @@
 var assert = require('assert');
 var Dozuki = require('./dozuki.js').Dozuki;
+Dozuki.http = {
+   mock: require('./wrappers/mock.http.js').mock
+};
 
 var domain = "www.test.com";
 
@@ -10,7 +13,7 @@ describe('Dozuki', function(){
    describe('guides', function() {
       describe('get', function() {
          it("should from the correct url", function(done) {
-            var http = new HttpMock("123");
+            var http = Dozuki.http.mock("123");
             var d = newDozuki(http);
             var promise = d.guides.get(123);
 
@@ -23,8 +26,8 @@ describe('Dozuki', function(){
             });
          });
 
-         it("should set the correct request options", function(done) {
-            var http = new HttpMock("123");
+         it("should set the correct request options", function() {
+            var http = Dozuki.http.mock("123");
             newDozuki(http).guides.get(123);
 
             assert.deepEqual(http.sent.options, {
@@ -38,18 +41,3 @@ describe('Dozuki', function(){
    });
 });
 
-function HttpMock(responseData) {
-   var self = {};
-   self.send = function(url, options) {
-      self.sent = {
-         url: url,
-         options: options
-      };
-      return {
-         then: function(callback) {
-            callback(responseData);
-         }
-      };
-   };
-   return self;
-}
