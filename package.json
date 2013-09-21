@@ -1,0 +1,25 @@
+{
+   "name" : "dozuki-js",
+   "description" : "Javascript wrapper for ifixit.com's api",
+   "tags" : ["api", "ifixit"],
+   "version" : "0.0.1",
+   "author" : {
+      "name" : "Daniel Beardsley",
+      "email" : "daniel.beardsley@gmail.com",
+      "url" : "https://github.com/danielbeardsley"
+   },
+   "repository" : {
+      "type" : "git",
+      "url" : "https://github.com/danielbeardsley/dozuki-js"
+   },
+   "bugs" : {
+      "web" : "https://github.com/danielbeardsley/dozuki-js/issues"
+   },
+   "license" : "MIT",
+   "engines" : ["node >= 0.6"],
+   "main" : "./dozuki.js",
+   "scripts": { "test": "mocha test.js" },
+   "devDependencies" : {
+      "mocha": "~1.13.0"
+   }
+}
