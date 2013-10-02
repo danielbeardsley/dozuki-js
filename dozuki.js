@@ -13,4 +13,6 @@
          }
       }
    }
+
+   global.Dozuki.http = {};
 })(typeof window != 'undefined' ? window : module.exports);
